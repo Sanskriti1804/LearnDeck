@@ -16,6 +16,8 @@ export const colors = {
   border: "#E2E8F0",
   disabledBackground: "#CBD5E1",
   disabledText: "#64748B",
+   error: "#EF4444",
+
 } as const;
 
 export const spacing = {

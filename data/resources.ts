@@ -10,6 +10,12 @@ export type Resource = {
   status: ResourceStatus;
 };
 
+export interface CreateResourceForm{
+  title : string,
+  description : string,
+  category : Exclude<Category, "All">
+}
+
 export const categories: Category[] = ["All", "Mobile", "Web", "AI"];
 
 export const resources: Resource[] = [
