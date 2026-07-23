@@ -12,8 +12,8 @@ import {
 import {zodResolver} from "@hookform/resolvers/zod"
 
 import { resourceSchema, ResourceFormData } from "@/schemas/resourceSchema";
-import { ScreenContainer } from "react-native-screens";
 import { FormInput } from "@/components/form/FormInput";
+import { ScreenContainer } from "@/components/ui";
 import { spacing } from "@/constants/theme";
 
 export default function AddResourceScreen(){

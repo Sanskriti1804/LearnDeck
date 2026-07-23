@@ -1,7 +1,8 @@
-import { Alert, StyleSheet, Text } from "react-native";
+import { Alert, StyleSheet, Text, View } from "react-native";
 
 import { AppButton, LogoBadge, ScreenContainer } from "@/components/ui";
 import { colors, spacing, typography } from "@/constants/theme";
+import { Link } from "expo-router";
 
 export default function HomeScreen() {
   function handleStartLearning() {
@@ -21,6 +22,9 @@ export default function HomeScreen() {
         onPress={handleStartLearning}
         fullWidth
       />
+      <View>
+        <Link href="/hello" style = {styles.link}>Hello Baby</Link>
+      </View>
     </ScreenContainer>
   );
 }
@@ -41,4 +45,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: spacing.xxl,
   },
+  link : {
+    paddingTop : 20,
+    textDecorationLine : "underline"
+  }
 });
