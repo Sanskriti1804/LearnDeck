@@ -2,18 +2,21 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { colors } from "@/constants/theme";
 
-export function LogoBadge({ label = "LD", size = 72 }) {
+type LogoBadgeProps = {
+  label?: string;
+  size?: number;
+};
+
+export function LogoBadge({ label = "LD", size = 72 }: LogoBadgeProps) {
   const borderRadius = Math.round(size * 0.28);
   const fontSize = Math.round(size * 0.33);
 
   return (
-    //outer container for the logo
     <View
       accessibilityElementsHidden
-      importantForAccessibility="no" //tells android accessibitlity services not to focus on this view
+      importantForAccessibility="no"
       style={[
         styles.container,
-        //dynamic styling
         {
           width: size,
           height: size,
@@ -21,7 +24,7 @@ export function LogoBadge({ label = "LD", size = 72 }) {
         },
       ]}
     >
-      <Text style={[styles.label, { fontSize }]}> {label} </Text>
+      <Text style={[styles.label, { fontSize }]}>{label}</Text>
     </View>
   );
 }

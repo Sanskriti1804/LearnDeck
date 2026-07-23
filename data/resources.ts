@@ -1,6 +1,19 @@
-//each resource is an object
-export const resources = [
-    {
+export type Category = "All" | "Mobile" | "Web" | "AI";
+
+export type ResourceStatus = "saved" | "in-progress" | "completed";
+
+export type Resource = {
+  id: string;
+  title: string;
+  category: Exclude<Category, "All">;
+  description: string;
+  status: ResourceStatus;
+};
+
+export const categories: Category[] = ["All", "Mobile", "Web", "AI"];
+
+export const resources: Resource[] = [
+  {
     id: "1",
     title: "React Native Fundamentals",
     category: "Mobile",

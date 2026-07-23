@@ -3,14 +3,14 @@ import { StyleSheet, Text } from "react-native";
 import { ScreenContainer, SectionHeader } from "@/components/ui";
 import { colors, spacing, typography } from "@/constants/theme";
 
-export default function ExploreScreen() {
+export default function ProfileScreen() {
   return (
     <ScreenContainer centered>
       <SectionHeader
-        title="Explore"
-        description="More screens coming soon."
+        title="Profile"
+        description="Your LearnDeck account details."
       />
-      <Text style={styles.hint}>Browse and discover new resources here.</Text>
+      <Text style={styles.hint}>Profile settings coming soon.</Text>
     </ScreenContainer>
   );
 }

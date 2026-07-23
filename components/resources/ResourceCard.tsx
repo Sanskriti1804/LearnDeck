@@ -1,23 +1,34 @@
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+
 import { colors, radius, spacing, typography } from "@/constants/theme";
+import type { Category, ResourceStatus } from "@/data";
+
+import { router, type Href } from "expo-router";
+
+type ResourceCardProps = {
+  id : string,
+  title: string;
+  category: Exclude<Category, "All">;
+  description: string;
+  initialStatus?: ResourceStatus;
+};
 
 export function ResourceCard({
+  id,
   title,
   category,
   description,
   initialStatus = "saved",
-}) {
-    //isSaved - currVal , setIsSaved - fnn to update the val
-    //initial val - true
+}: ResourceCardProps) {
   const [isSaved, setIsSaved] = useState(true);
-  const [status, setStatus] = useState(initialStatus);
+  const [status, setStatus] = useState<ResourceStatus>(initialStatus);
   const [showDescription, setShowDescription] = useState(false);
 
-  function handleSaveToggle(){
+  function handleSaveToggle() {
     setIsSaved((currentValue) => !currentValue);
   }
-  
+
   function handleStatusChange() {
     setStatus((currentStatus) => {
       if (currentStatus === "saved") {
@@ -26,7 +37,6 @@ export function ResourceCard({
       if (currentStatus === "in-progress") {
         return "completed";
       }
-      //if status is completed change it back to saved
       return "saved";
     });
   }
@@ -35,15 +45,21 @@ export function ResourceCard({
     setShowDescription((currentValue) => !currentValue);
   }
 
+  function handlePress() {
+    router.push(`/resource/${id}` as Href);
+  }
 
   return (
     <View style={styles.card}>
-      <View style={styles.header}> 
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel={`Open ${title}`}
+        onPress={handlePress}
+        style={({ pressed }) => [styles.header, pressed && styles.pressed]}
+      >
         <View style={styles.content}>
-          
-          <Text style={styles.category}> {category} </Text>
-          <Text style={styles.title}> {title} </Text>
-
+          <Text style={styles.category}>{category}</Text>
+          <Text style={styles.title}>{title}</Text>
         </View>
 
         <Pressable
@@ -53,18 +69,14 @@ export function ResourceCard({
           }
           hitSlop={8}
           onPress={handleSaveToggle}
-          style={({ pressed }) => [
+          style={({ pressed: savePressed }) => [
             styles.saveButton,
-            pressed && styles.pressed,
+            savePressed && styles.pressed,
           ]}
         >
-          
-          <Text style={styles.saveLabel}>
-            
-            {isSaved ? "Saved" : "Save"}
-          </Text>
+          <Text style={styles.saveLabel}>{isSaved ? "Saved" : "Save"}</Text>
         </Pressable>
-      </View>
+      </Pressable>
 
       <Pressable
         accessibilityRole="button"
@@ -73,13 +85,12 @@ export function ResourceCard({
           styles.statusButton,
           pressed && styles.pressed,
         ]}
-      > <Text style={styles.statusLabel}>
-          Status: {formatStatus(status)}
-        </Text>
+      >
+        <Text style={styles.statusLabel}>Status: {formatStatus(status)}</Text>
       </Pressable>
 
       {showDescription ? (
-        <Text style={styles.description}> {description} </Text>
+        <Text style={styles.description}>{description}</Text>
       ) : null}
 
       <Pressable
@@ -90,9 +101,7 @@ export function ResourceCard({
           pressed && styles.pressed,
         ]}
       >
-        
         <Text style={styles.descriptionButtonText}>
-          
           {showDescription ? "Hide notes" : "View notes"}
         </Text>
       </Pressable>
@@ -100,7 +109,7 @@ export function ResourceCard({
   );
 }
 
-function formatStatus(status) {
+function formatStatus(status: ResourceStatus) {
   if (status === "in-progress") {
     return "In Progress";
   }
