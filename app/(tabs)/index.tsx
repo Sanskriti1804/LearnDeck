@@ -23,7 +23,7 @@ export default function HomeScreen() {
         fullWidth
       />
       <View>
-        <Link href="/hello" style = {styles.link}>Hello Baby</Link>
+        <Link href="/profile" style = {styles.link}>Hello Baby</Link>
       </View>
     </ScreenContainer>
   );
