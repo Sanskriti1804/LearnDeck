@@ -1,4 +1,5 @@
-import { Alert, StyleSheet, Text, View } from "react-native";
+import { Alert,  StyleSheet, Text, View } from "react-native";
+import {StatusBar} from "expo-status-bar"
 
 import { AppButton, LogoBadge, ScreenContainer } from "@/components/ui";
 import { colors, spacing, typography } from "@/constants/theme";
@@ -10,9 +11,9 @@ export default function HomeScreen() {
   }
 
   return (
-    <ScreenContainer centered>
+    <ScreenContainer style = {[styles.container, {backgroundColor : "gray"}]}>
       <LogoBadge label="LD" />
-      <Text style={styles.title}>Learn Deck</Text>
+      <Text style={[styles.title ]}>Learn Deck</Text>
       <Text style={styles.subtitle}>
         Your personal space to collect, organize, learn and remember.
       </Text>
@@ -30,6 +31,10 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  container : {
+    alignContent : "center",
+    justifyContent : "center"
+  },
   title: {
     color: colors.textPrimary,
     fontSize: typography.title,

@@ -1,8 +1,11 @@
 // Root layout file
 import { Slot, Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
 export default function RootLayout() {
   return (
+    <>
+    <StatusBar style="dark" backgroundColor="pink"/>
     <Stack screenOptions={{ headerShown: false }}>
       <Slot/>
       {/* Bottom navigation tabs */}
@@ -16,5 +19,6 @@ export default function RootLayout() {
       {/*Modal -  Pop-up/Dialog/Bottom Sheet/ Drawer */}
       <Stack.Screen name="modal" options={{ presentation: "modal" }} />
     </Stack>
+      </>
   );
 }
