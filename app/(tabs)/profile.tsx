@@ -1,18 +1,22 @@
 import { StyleSheet, Text, Image} from "react-native";
 
-import { ScreenContainer, SectionHeader } from "@/components/ui";
+import ThemedScreenContainer  from "@/components/themedUi/ThemedScreenContainer";
+
+import { SectionHeader } from "@/components/ui";
 import { colors, spacing, typography } from "@/constants/theme";
+import ProfileCard from "@/components/resources/ProfileCard";
 
 export default function ProfileScreen() {
   return (
-    <ScreenContainer centered>
+    <ThemedScreenContainer centered>
       <SectionHeader
         title="Profile"
         description="Your LearnDeck account details."
       />
       <Text style={styles.hint}>Profile settings coming soon.</Text>
+      <ProfileCard></ProfileCard>
       <Image source={require("@/assets/images/down.jpg")} style = {styles.image}/>
-    </ScreenContainer>
+    </ThemedScreenContainer>
   );
 }
 

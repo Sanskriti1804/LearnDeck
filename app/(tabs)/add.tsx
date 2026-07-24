@@ -13,7 +13,7 @@ import {zodResolver} from "@hookform/resolvers/zod"
 
 import { resourceSchema, ResourceFormData } from "@/schemas/resourceSchema";
 import { FormInput } from "@/components/form/FormInput";
-import { ScreenContainer } from "@/components/ui";
+import ThemedScreenContainer  from "@/components/themedUi/ThemedScreenContainer";
 import { spacing } from "@/constants/theme";
 
 export default function AddResourceScreen(){
@@ -41,7 +41,7 @@ export default function AddResourceScreen(){
         //prints the submitted form data
         console.log(data);
     }return(
-        <ScreenContainer>
+        <ThemedScreenContainer>
             {/* prevents the keyboard from hiding the i/p */}
             <KeyboardAvoidingView
             //on ios move the content upward and android handles it diff
@@ -73,7 +73,7 @@ export default function AddResourceScreen(){
                 </ScrollView>
 
             </KeyboardAvoidingView>
-        </ScreenContainer>
+        </ThemedScreenContainer>
     )
 }
 

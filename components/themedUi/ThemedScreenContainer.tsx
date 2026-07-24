@@ -9,7 +9,7 @@ type ScreenContainerProps = PropsWithChildren<{
   style?: StyleProp<ViewStyle>;
 }>;
 
-export function ScreenContainer({
+export default function ThemedScreenContainer({
   children,
   centered = false,
   style,

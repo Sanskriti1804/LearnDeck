@@ -1,4 +1,4 @@
-import { Ionicons } from "@expo/vector-icons";
+import AppIcon from "@/components/themedUi/AppIcon"
 import { Tabs } from "expo-router";
 import React from "react";
 
@@ -18,7 +18,7 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" color={color} size={size} />
+            <AppIcon  name="home-outline" color={color} size={size} />
           ),
         }}
       />
@@ -28,7 +28,7 @@ export default function TabLayout() {
         options={{
           title: "Library",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="library-outline" color={color} size={size} />
+            <AppIcon  name="library-outline" color={color} size={size}  />
           ),
         }}
       />
@@ -38,7 +38,7 @@ export default function TabLayout() {
         options={{
           title: "Add",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="add-circle-outline" color={color} size={size} />
+            <AppIcon  name="add-circle-outline" color={color} size={size} />
           ),
         }}
       />
@@ -48,7 +48,7 @@ export default function TabLayout() {
         options={{
           title: "Profile",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person-outline" color={color} size={size} />
+            <AppIcon  name="person-outline" color={color} size={size} />
           ),
         }}
       />

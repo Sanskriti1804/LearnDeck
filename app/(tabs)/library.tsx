@@ -6,7 +6,8 @@ import {
   EmptyLibrary,
   ResourceCard,
 } from "@/components/resources";
-import { ScreenContainer, SectionHeader } from "@/components/ui";
+import {  SectionHeader } from "@/components/ui";
+import ThemedScreenContainer  from "@/components/themedUi/ThemedScreenContainer";
 import { spacing } from "@/constants/theme";
 import { resources, type Category, type Resource } from "@/data";
 
@@ -40,7 +41,7 @@ export default function LibraryScreen() {
   }
 
   return (
-    <ScreenContainer>
+    <ThemedScreenContainer>
       <View style={styles.container}>
         <SectionHeader
           title="Your Library"
@@ -63,7 +64,7 @@ export default function LibraryScreen() {
           ListEmptyComponent={<EmptyLibrary category={selectedCategory} />}
         />
       </View>
-    </ScreenContainer>
+    </ThemedScreenContainer>
   );
 }
 

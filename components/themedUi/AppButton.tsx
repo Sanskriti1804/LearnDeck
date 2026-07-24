@@ -9,6 +9,7 @@ import {
 
 import { colors, radius, spacing } from "@/constants/theme";
 
+//available button style
 type AppButtonVariant = "primary" | "secondary";
 
 type AppButtonProps = {
@@ -22,7 +23,7 @@ type AppButtonProps = {
   style?: StyleProp<ViewStyle>;
 };
 
-export function AppButton({
+export default function AppButton({
   title,
   onPress,
   variant = "primary",
@@ -44,6 +45,7 @@ export function AppButton({
       }}
       disabled={isDisabled}
       onPress={onPress}
+      //dynamic styling
       style={({ pressed }) => [
         styles.base,
         variant === "primary" ? styles.primary : styles.secondary,
